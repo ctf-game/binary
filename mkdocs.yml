@@ -1,0 +1,179 @@
+site_name: CTF Handbook
+site_description: Capture the Flag Competition Wiki
+site_author: OSIRIS Lab & CTFd LLC
+plugins:
+  - search
+  - exclude-search:
+      exclude:
+        - challenges/*
+  - git-revision-date-localized:
+      enable_creation_date: true
+  #       type: timeago
+  #       locale: en
+  #       fallback_to_build_date: false
+  #       enable_creation_date: true
+  #       exclude:
+  #           - index.md
+  #       enabled: true
+  #       strict: true
+  - glightbox
+theme:
+  name: material
+  favicon: images/favicon/favicon.ico
+  logo: images/ctf101.png
+  # https://squidfunk.github.io/mkdocs-material/setup/setting-up-navigation
+  features:
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.instant
+    - content.code.annotate
+    - content.code.copy
+    - navigation.top
+    # - navigation.sections
+    # - navigation.expand
+    # - navigation.sections
+  palette:
+    # Palette toggle for automatic mode
+    # - media: "(prefers-color-scheme)"
+    #   toggle:
+    #     icon: material/brightness-auto
+    #     name: Automatic light-dark mode toggling
+
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: white
+      accent: indigo
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: black
+      accent: indigo
+      toggle:
+        icon: material/weather-night
+        name: Switch to light mode
+  font:
+    code: Roboto Mono
+
+extra_css:
+  - stylesheets/extra.css
+
+extra:
+  generator: false
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/osirislab
+    - icon: fontawesome/brands/discord
+      link: https://discord.gg/Vk6RXcw5wx
+copyright: Made with 💖 by <a href="https://osiris.cyber.nyu.edu">OSIRIS Lab</a> & <a href="https://ctfd.io">CTFd</a>
+
+repo_url: https://github.com/osirislab/ctf101
+repo_name: osiris/ctf101
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+      options:
+        custom_icons:
+          - overrides/.icons
+  - footnotes
+  - def_list
+  - pymdownx.arithmatex:
+      generic: true
+
+extra_javascript:
+  - js/mathjax.js
+  - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
+
+docs_dir: docs/
+nav:
+  # This does not show up on the navbar. The Index word is specifically hidden in nav.html
+  - Home: index.md
+
+  - Introduction:
+      - What is a CTF: "intro/what-is-a-ctf.md"
+      - Getting Started with CTFs: "intro/ctf-basics.md"
+      - How do I host a CTF: "intro/how-to-run-a-ctf.md"
+
+  # Forensics Section
+  - Forensics:
+      - Overview: "forensics/overview.md"
+      - File Formats: "forensics/what-are-file-formats.md"
+      - Metadata: "forensics/what-is-metadata.md"
+      - Stegonagraphy: "forensics/what-is-stegonagraphy.md"
+      - Disk Imaging: "forensics/what-is-disk-imaging.md"
+      - Memory Forensics: "forensics/what-is-memory-forensics.md"
+      - Hex Editors: "forensics/what-is-a-hex-editor.md"
+      - Network Analysis:
+          - Wireshark: "forensics/what-is-wireshark.md"
+          - Packet Capture: "forensics/what-is-packet-capture.md"
+
+  # Cryptography Section
+  - Cryptography:
+      - Overview: "cryptography/overview.md"
+      - XOR: "cryptography/what-is-xor.md"
+      - Hashing Functions: "cryptography/what-are-hashing-functions.md"
+      - Ciphers:
+          - Substitution Cipher: "cryptography/what-is-a-substitution-cipher.md"
+          - Caesar Cipher/ROT 13: "cryptography/what-is-caesar-cipher-rot-13.md"
+          - Vigenere Cipher: "cryptography/what-is-a-vigenere-cipher.md"
+      - Modes of Operation:
+          - Block Ciphers: "cryptography/what-are-block-ciphers.md"
+          - Stream Ciphers: "cryptography/what-are-stream-ciphers.md"
+      - Asymmetric Encryption:
+          - RSA: "cryptography/what-is-rsa.md"
+
+  # Web Exploitation Section
+  - Web Exploitation:
+      - Overview: "web-exploitation/overview.md"
+      - SQL Injection: "web-exploitation/sql-injection/what-is-sql-injection.md"
+      - Command Injection: "web-exploitation/command-injection/what-is-command-injection.md"
+      - Directory Traversal: "web-exploitation/directory-traversal/what-is-directory-traversal.md"
+      - Cross Site Request Forgery: "web-exploitation/cross-site-request-forgery/what-is-cross-site-request-forgery.md"
+      - Cross Site Scripting (XSS): "web-exploitation/cross-site-scripting/what-is-cross-site-scripting.md"
+      - Server Side Request Forgery: "web-exploitation/server-side-request-forgery/what-is-server-side-request-forgery.md"
+      - PHP: "web-exploitation/php/what-is-php.md"
+
+  # Reverse Engineering Section
+  - Reverse Engineering:
+      - Overview: "reverse-engineering/overview.md"
+      - Assembly/Machine Code: "reverse-engineering/what-is-assembly-machine-code.md"
+      - The C Programming Language: "reverse-engineering/what-is-c.md"
+      - Disassemblers: "reverse-engineering/what-are-disassemblers.md"
+      - Debuggers: "reverse-engineering/what-is-gdb.md"
+      - Decompilers: "reverse-engineering/what-are-decompilers.md"
+
+  #  Binary Exploitation Section
+  - Binary Exploitation:
+      - Overview: "binary-exploitation/overview.md"
+      - Registers: "binary-exploitation/what-are-registers.md"
+      - The Stack: "binary-exploitation/what-is-the-stack.md"
+      - Calling Conventions: "binary-exploitation/what-are-calling-conventions.md"
+      - Global Offset Table (GOT): "binary-exploitation/what-is-the-got.md"
+      - Format String Vulnerability: "binary-exploitation/what-is-a-format-string-vulnerability.md"
+      - Return Oriented Programming (ROP): "binary-exploitation/return-oriented-programming.md"
+      - Buffers:
+          - What are Buffers: "binary-exploitation/what-are-buffers.md"
+          - Buffer Overflow: "binary-exploitation/buffer-overflow.md"
+      - Binary Security:
+          - What is Binary Security: "binary-exploitation/what-is-binary-security.md"
+          - No eXecute (NX): "binary-exploitation/no-execute.md"
+          - Address Space Layout Randomization (ASLR): "binary-exploitation/address-space-layout-randomization.md"
+          - Stack Canaries: "binary-exploitation/stack-canaries.md"
+          - Relocation Read-Only (RELRO): "binary-exploitation/relocation-read-only.md"
+      - The Heap:
+          - What is the Heap: "binary-exploitation/what-is-the-heap.md"
+          - Heap Exploitation: "binary-exploitation/heap-exploitation.md"
+  
+  # FAQ Section
+  - FAQ:
+      - How to connect to services: "faq/connecting-to-services.md"
+      - I need a server: "faq/i-need-a-server.md"
+      - Recommended Software: "faq/recommended-software.md"
